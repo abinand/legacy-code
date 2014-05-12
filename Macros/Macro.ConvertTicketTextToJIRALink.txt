@@ -1,0 +1,15 @@
+Sub ConvertTicketTextToJIRALink()
+'
+' Macro: ConvertTicketTextToJIRALink
+' Date: 2014-05-12
+'
+    Dim re As Object
+    Set re = CreateObject("vbscript.regexp")
+    re.Pattern = "[a-zA-Z]{1,5}-\d+?$"
+    On Error Resume Next
+    For Each cell In Selection.SpecialCells(xlCellTypeConstants)
+        If re.Test(cell.Value) Then
+            ActiveSheet.Hyperlinks.Add Anchor:=cell, Address:="https://vitacost.atlassian.net/browse/" & cell.Value, TextToDisplay:=cell.Value
+        End If
+    Next cell
+End Sub
