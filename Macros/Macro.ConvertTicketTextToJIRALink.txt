@@ -9,7 +9,7 @@ Sub ConvertTicketTextToJIRALink()
     On Error Resume Next
     For Each cell In Selection.SpecialCells(xlCellTypeConstants)
         If re.Test(cell.Value) Then
-            ActiveSheet.Hyperlinks.Add Anchor:=cell, Address:="https://vitacost.atlassian.net/browse/" & cell.Value, TextToDisplay:=cell.Value
+            ActiveSheet.Hyperlinks.Add Anchor:=cell, Address:="https://xxx.atlassian.net/browse/" & cell.Value, TextToDisplay:=cell.Value
         End If
     Next cell
 End Sub
